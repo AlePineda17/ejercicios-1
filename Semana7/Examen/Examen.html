@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="Examen.js"></script>
+
+        <style>
+            .activo{
+                display: block;
+                position: absolute;
+            }
+
+            .inactivo{
+                display: none;
+                position: absolute;
+            }
+        </style>
+
+        <title>Examen</title>
+    </head>
+
+    <body>
+        <div id="pagina-1" class="activo">
+            <div>
+                <label for="txt_nombre">Nombre:</label><br>
+                <input type="text" name="txt_nombre" id="txt_nombre">
+            </div>
+            
+            <div>
+                <label for="txt_apellido">Apellido:</label><br>
+                <input type="text" name="txt_apellido" id="txt_apellido">
+            </div>
+            
+            <div>
+                <label for="txt_edad">Edad:</label><br>
+                <input type="text" name="txt_edad" id="txt_edad">
+            </div>    
+                    
+            <div>
+                <label for="txt_dpi">DPI:</label><br>
+                <input type="text" name="txt_dpi" id="txt_dpi">
+            </div>
+
+            <div>
+                <p>Genero:</p>
+                <input type="radio" name="rd_femenino" id="rd_femenino">
+                <label for="rd_femenino">:</label><br>
+                <input type="radio" name="rd_masculino" id="rd_masculino">
+                <label for="rd_masculino">:</label><br>
+            </div>
+
+            <button id="boton_siguiente">Siguiente</button>
+        </div>
+
+        <div id="pagina-2" class="inactivo">
+            <div>
+                <label for="txt_telefono">Telefono:</label><br>
+                <input type="text" name="txt_telefono" id="txt_telefono">
+            </div>
+            
+            <div>
+                <label for="dt_fecha_nac">Fecha de nacimiento:</label><br>
+                <input type="date" name="dt_fecha_nac" id="dt_fecha_nac">
+            </div>
+            
+            <div>
+                <label for="drp_pais">Pais de residencia:</label><br>
+                <input type="" name="drp_pais" id="drp_pais">
+            </div>
+                    
+            <div>
+                <label for="drp_depto">Departamento:</label><br>
+                <input type="" name="drp_depto" id="drp_depto">
+            </div>
+
+            <button id="boton_anterior">Anterior</button>
+            <button id="boton_siguiente">Siguiente</button>
+        </div>
+
+        <div id="pagina-3" class="inactivo">
+            <div>
+                <p>Intereses:</p>
+                <input type="checkbox" name="chk_musica" id="chk_musica">
+                <label for="chk_musica">Musica</label><br>
+                <input type="checkbox" name="chk_cine" id="chk_cine">
+                <label for="chk_cine">Cine</label><br>
+                <input type="checkbox" name="chk_moda" id="chk_moda">
+                <label for="moda">Moda</label><br>
+                <input type="checkbox" name="chk_deportes" id="chk_deportes">
+                <label for="chk_deportes">Deportes</label><br>
+                <input type="checkbox" name="chk_cocina" id="chk_cocina">
+                <label for="chk_cocina">Cocina</label><br>
+                <input type="checkbox" name="chk_belleza" id="chk_belleza">
+                <label for="chk_belleza">Belleza</label><br>
+            </div>
+            
+            <div>
+                <label for="drp_escolaridad">Escolaridad:</label><br>
+                <input type="" name="drp_escolaridad" id="drp_escolaridad">
+            </div>
+                    
+            <button id="boton_anterior">Anterior</button>
+            <button id="boton_siguiente">Siguiente</button>
+        </div>
+
+        <div id="pagina-4" class="inactivo">
+            <div>
+                <p>Tiene correo?</p>
+                <input type="radio" name="rd_correo_si" id="rd_correo_si">
+                <label for="rd_correo_si">Si</label>
+                <input type="radio" name="rd_correo_no" id="rd_correo_no">
+                <label for="rd_correo_no">No</label><br>
+                <label for="txt_correo">Correo electronico:</label><br>
+                <input type="text" name="txt_correo" id="txt_correo">
+            </div>
+            
+            <div>
+                <input type="text" name="txt_comentarios" id="txt_comentarios" placeholder="Comentarios"><br>
+            </div>
+                    
+            <button id="boton_anterior">Anterior</button>
+            <button id="boton_finalizar">Finalizar</button>
+        </div>
+    </body>
+</html>  

@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <script>
+        var cine = {
+          'terror': {
+            'suspenso':[
+              {nombre:'The number 23',duracion:'101'},
+              {nombre:'Knowing',duracion:'104'},
+              {nombre:'The others',duracion:'109'},
+            ],
+            'slasher':[
+            {nombre:'Jason X',duracion:'101'},
+              {nombre:'Terror in elm street',duracion:'104'},
+              {nombre:'Friday 13th',duracion:'109'},
+              {nombre:'Evil dead',duracion:'109'},
+            ]
+          },
+          'comedia': {
+            'romantica':[
+              {nombre:'Fever Pitch',duracion:'111'},
+              {nombre:'50 first times',duracion:'114'},
+              {nombre:'As good as it gets',duracion:'119'},
+            ],
+            'infantil':[
+              {nombre:'Tarzan',duracion:'91'},
+              {nombre:'The incredibles',duracion:'105'},
+              {nombre:'Ratatuille',duracion:'129'},
+              {nombre:'Toy Story',duracion:'129'}
+            ]  
+          },
+        }
+
+        function TablaArmar(){
+          var pelicula_genero = '';
+          var pelicula_subgenero = '';
+          var i = 1;
+          var tabla_html = `<table>
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Genero</th>
+                                  <th>Subgenero</th>
+                                  <th>Pelicula</th>
+                                </tr>
+                              </thead>
+                              <tbody>`;
+          for(genero in cine){
+            pelicula_genero = genero;
+            for(subgenero in cine[genero]){
+              pelicula_subgenero = subgenero;
+              for(pelicula_indice in cine[genero][subgenero]){
+                var pelicula = cine[genero][subgenero][pelicula_indice];
+                tabla_html += `<tr>
+                                  <td>${i}</td>
+                                  <td>${pelicula_genero}</td>
+                                  <td>${pelicula_subgenero}</td>
+                                  <td>${pelicula.nombre}</td>
+                                </tr>`;
+                i++;
+              }
+            }
+          }
+          tabla_html +=       `</tbody>
+                            </table>`;
+          var div_tabla = document.getElementById('div_tabla');
+          div_tabla.innerHTML = tabla_html;
+        }
+    </script>
+  </head>
+  <body>
+      <div>
+        <button onclick="TablaArmar();">Mostrar Tabla</button>
+        <div id="div_tabla">
+        </div>
+      </div>
+  </body>
+</html>

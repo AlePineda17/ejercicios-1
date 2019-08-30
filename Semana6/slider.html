@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            .slider{
+                margin-top: 0px;
+                position: absolute;
+            }
+            
+            .activa{
+                display:block;
+            }
+
+            .inactiva{
+                display:none;
+            }
+        </style>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script>
+            var intervalo = setInterval(function(){
+                Slider();
+            },3000);
+            
+            var imagen_actual = 1;
+            function Slider(){
+                $('.slider').removeClass('activa');
+                $('.slider').addClass('inactiva');
+                /*var imagenes = document.getElementsByClassName('slider');
+                for(var i=0;i<imagenes.length;i++){
+                    imagenes[i].classList.remove('activa');
+                    imagenes[i].classList.add('inactiva');
+                }
+                var imagen = document.getElementById('img-'+imagen_actual);
+                imagen.classList.add('activa');
+                imagen.classList.remove('inactiva');*/
+                $('#img-'+imagen_actual).addClass('activa');
+                $('#img-'+imagen_actual).removeClass('inactiva');
+                imagen_actual++;
+                if(imagen_actual == 6){
+                    imagen_actual = 1;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <img id="img-1" class="slider activa" src="https://previews.customer.envatousercontent.com/files/123768126/images/triworks_abstract26.jpg">
+        <img id="img-2" class="slider inactiva" src="https://previews.customer.envatousercontent.com/files/123768126/images/vancouver.jpg">
+        <img id="img-3" class="slider inactiva" src="https://previews.customer.envatousercontent.com/files/123768126/images/ocean.jpg">
+        <img id="img-4" class="slider inactiva"  src="https://previews.customer.envatousercontent.com/files/123768126/images/crab.jpg">
+        <img id="img-5" class="slider inactiva" src="https://previews.customer.envatousercontent.com/files/123768126/images/hk.jpg">    
+    </body>
+</html>

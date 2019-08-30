@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+                MostrarExamen();
+            });
+
+            var preguntas = [
+                {
+                    'pregunta': 'Como se le llama al proceso en el cual se unen dos atomos con nucleos mas ligeros para formar un atomo con un nucleo mas pesado?',
+                    'tipo': 'directa',
+                    'respuesta': 'Fusion',
+                },
+                {
+                    'pregunta': 'Tradicionalmente (ano 1516), cuantos ingredientes se utilizan en la creacion de cerveza.',
+                    'tipo': 'opcion',
+                    'respuestas': [
+                        {
+                            'valor': '2',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': '4',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': '3',
+                            'correcta': true,
+                        },
+                        {
+                            'valor': '6',
+                            'correcta': false,
+                        },
+                    ],
+                },
+                {
+                    'pregunta': 'Cuantas vidas tiene un gato?',
+                    'tipo': 'directa',
+                    'respuesta': '9',
+                },
+                {
+                    'pregunta': 'Existe un ser superior?',
+                    'tipo': 'opcion',
+                    'respuestas': [
+                        {
+                            'valor': 'Si',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'No',
+                            'correcta': false,
+                        },
+                    ],
+                },
+                {
+                    'pregunta': 'Cual de estas plantas no florea?',
+                    'tipo': 'opcion',
+                    'respuestas': [
+                        {
+                            'valor': 'Nymphaeales',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Marchantia',
+                            'correcta': true,
+                        },
+                        {
+                            'valor': 'Chloranthales',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Ceratophyllum',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Amborella',
+                            'correcta': false,
+                        },
+                    ],
+                },
+                {
+                    'pregunta': 'Que colores debes mezclar para hacer morado?',
+                    'tipo': 'seleccion',
+                    'respuestas': [
+                        {
+                            'valor': 'Azul',
+                            'correcta': true,
+                        },
+                        {
+                            'valor': 'Rojo',
+                            'correcta': true,
+                        },
+                        {
+                            'valor': 'Amarillo',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Verde',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Cafe',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Blanco',
+                            'correcta': false,
+                        },
+                    ],
+                },
+                {
+                    'pregunta': 'Quienes acompanaron a Frodo en las primerass etapas de su trayecto hacia Mordor?',
+                    'tipo': 'seleccion',
+                    'respuestas': [
+                        {
+                            'valor': 'Gandalf',
+                            'correcta': true,
+                        },
+                        {
+                            'valor': 'Theodin',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Merry',
+                            'correcta': true,
+                        },
+                        {
+                            'valor': 'Faramir',
+                            'correcta': false,
+                        },
+                        {
+                            'valor': 'Aragorn',
+                            'correcta': true,
+                        }
+                    ],
+                },
+            ];
+
+            function MostrarExamen(){
+                var preguntas_html = '';
+                $.each( preguntas, function(llave, pregunta ) {
+                    console.log(pregunta.tipo);
+                    var pregunta_tipo = pregunta.tipo
+                    switch(pregunta_tipo.toString()){
+                        case 'directa':
+                            preguntas_html += '<label>'+pregunta.pregunta+'</label><div><input type="text" id="txt_directa_'+llave+'" onchange="PreCalificar(this,'+llave+');"></div>';
+                            break;
+                        case 'opcion':
+                            preguntas_html += '<label>'+pregunta.pregunta+'</label><div>';
+                            $.each(pregunta.respuestas, function(llave2, respuesta ) {
+                                preguntas_html += '<input type="radio" name="rad_opcion_'+llave+'" value="'+respuesta.valor+'" onchange="PreCalificar(this,'+llave+');">'+respuesta.valor+'</br>';
+                            });
+                            preguntas_html += '</div>';
+                            break;
+                        case 'seleccion':
+                            preguntas_html += '<label>'+pregunta.pregunta+'</label><div>';
+                            $.each(pregunta.respuestas, function(llave3, respuesta2 ) {
+                                preguntas_html += '<input type="checkbox" id="chk_seleccion_'+llave+llave3+'" value="'+respuesta2.valor+'" onchange="PreCalificar(this,'+llave+');">'+respuesta2.valor+'</br>';
+                            });
+                            preguntas_html += '</div>';
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                $('#div_examen').html(preguntas_html);
+            }
+
+            var pregunta_valor = 10;
+            var calificacion = 0;
+            function PreCalificar(_elemento, _indice){
+                var respuestas = (preguntas[_indice].respuestas)?preguntas[_indice].respuestas:preguntas[_indice].respuesta;
+                if(Array.isArray(respuestas)){
+                    var respuestas_correctas = 0;
+                    var respuestas_incorrectas = 0;
+                    var es_seleccion = false;
+                    var respuestas_correctas_generales = 0;
+                    $.each(respuestas, function(indice, valor ) {
+                        if(valor.tipo == 'opcion'){
+                            if(valor.valor == _elemento.value && valor.correcta == true){
+                                calificacion += pregunta_valor;
+                            }
+                        }
+                        else{
+                            es_seleccion = true;
+                            if(valor.correcta == true){
+                                respuestas_correctas_generales++;
+                            }
+                            var respuesta_valor = pregunta_valor/respuestas.length;
+                            if(valor.valor == _elemento.value && valor.correcta == true){
+                                respuestas_correctas++;
+                            }
+                            else{
+                                respuestas_incorrectas++;
+                            }
+                        }
+                    });
+                    if(es_seleccion){
+                        var respuestas_diferencia = (respuestas_correctas-respuestas-incorrectas)/respuestas_correctas_generales;
+                        calificacion += respuestas_diferencia*respuesta_valor;
+                    }
+                }
+                else{
+                    if(_elemento.value == respuestas){
+                        calificacion+= 5;
+                    }
+                }
+                console.log(calificacion);
+            }
+
+            function Calificar(){
+                $('#div_nota').html('Su nota es: '+calificacion);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div_examen"></div>
+        <button id="btn_calificar" onclick="Calificar();">Calificar</button>
+        <div id="div_nota"></div>
+    </body>
+</html>

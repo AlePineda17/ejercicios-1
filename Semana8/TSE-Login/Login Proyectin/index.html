@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V18</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link type="text/css" href="style.css" rel="stylesheet">
+	<script src="validaciones.js"></script>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<div class="container-contact100" id="pantalla1">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Registro a la Plataforma TSE
+				</span>
+				<div class="wrap-input100 validate-input" data-validate="Ingrese su Telefono">
+					<label class="label-input100" for="name">Telefono</label>
+					<input id="telefono" class="input100" type="text" name="telefono" placeholder="Ingrese telefono...">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Ingrese su Nombre">
+					<label class="label-input100" for="name">Nombre</label>
+					<input id="nombre" class="input100" type="text" name="nombre" placeholder="Ingrese nombre...">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Ingrese su Apellido">
+					<label class="label-input100" for="name">Apellido</label>
+					<input id="apellido" class="input100" type="text" name="apellido" placeholder="Ingrese apellido...">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-contact100-form-btn">
+					<button id="ocultarpantalla1" class="button" onclick="validar()">Registro</button>
+			   </div>
+			</form>		
+			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+			</div>
+		</div>
+	</div>
+
+	<div class="container-contact100" id="pantalla2">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Generar Token
+				</span>
+				<div class="wrap-input100 validate-input" data-validate="Ingrese su Telefono">
+					<label class="label-input100" for="name">Telefono</label>
+					<input id="telefono2" class="input100" type="text" name="telefono2" placeholder="Ingrese telefono...">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-contact100-form-btn">
+					<button id="ocultarpantalla2" class="button">Generar Token</button>
+			   </div>
+			</form>
+			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+			</div>
+		</div>
+	</div>
+
+	<div class="container-contact100" id="pantalla3">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Validacion de Token
+				</span>
+				<div class="wrap-input100 validate-input" data-validate="Ingrese su Telefono ">
+					<label class="label-input100" for="name">Telefono</label>
+					<input id="telefono3" class="input100" type="text" name="telefono3" placeholder="Ingrese telefono...">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" data-validate="Ingrese su Token">
+					<label class="label-input100" for="name">Token</label>
+					<input id="token" class="input100" type="text" name="token" placeholder="Ingrese token...">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-contact100-form-btn">
+					<button id="11" class="button">Validar Token</button>
+			   </div>
+			</form>
+			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+			</div>
+		</div>
+	</div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+	<script src="script.js"></script>
+</body>
+</html>

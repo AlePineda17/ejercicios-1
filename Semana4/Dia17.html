@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>
+      function DatosVer(){
+      var nombre = document.getElementById('txt_nombre').value;
+      var edad = document.getElementById('txt_edad').value;
+      var ul_HTML = '<ul>' +
+                         '<li>' + nombre + '</li>' +
+                         '<li>' + edad + '</li>' +
+                    '<ul>';
+      var datos = document.getElementById('div_datos');
+      datos.innerHTML = ul_HTML;                       
+      }
+    </script>
+  </head>
+  <body>
+    <input type ="text" id ="txt_nombre">
+    <input type ="number" id = "txt_edad">
+    <button onclick ="DatosVer();">saludar</button>
+    <div id ="div_datos"></div>
+  </body>
+</html>
+

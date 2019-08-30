@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <style>
+            #div_error{
+                color:red;
+            }
+        </style>
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+        <script>
+            function RegistroValidar(){
+                var nombre = $('#txt_nombre').val();
+                var edad = $('#txt_edad').val();
+                var dpi = $('#txt_dpi').val();
+                var correo = $('#txt_correo').val();
+                var clave = $('#txt_clave').val();
+                var mensaje_error = '';
+                var error = false;
+                if(nombre == ''){
+                    error = true;
+                    mensaje_error += '<div>Ingrese su nombre</div>';
+                }
+                else{
+                    var patron = /([A-Za-z]|\s)+/;
+                    var nombre_correcto = patron.test(nombre);
+                    if(!nombre_correcto){
+                        error = true;
+                        mensaje_error += 'Ingrese un nombre valido.';
+                    }
+                }
+                if(edad == ''){
+                    error = true;
+                    mensaje_error += '<div>Ingrese su edad</div>';
+                }
+                else{
+                    var patron = /[0-9]+/;
+                    var edad_correcto = patron.test(edad);
+                    if(!edad_correcto){
+                        error = true;
+                        mensaje_error += '<div>Ingrese una edad valida.</div>';
+                    }
+                }
+                if(dpi == ''){
+                    error = true;
+                    mensaje_error += '<div>Ingrese su dpi</div>';
+                }else{
+                    var patron = /[0-9]+/;
+                    var dpi_correcto = patron.test(dpi);
+                    if(!dpi_correcto){
+                        error = true;
+                        mensaje_error += '<div>Ingrese un nombre valido.</div>';
+                    }
+                }
+                if(correo == ''){
+                    error = true;
+                    mensaje_error += '<div>Ingrese su correo</div>';
+                }
+                if(clave == ''){
+                    error = true;
+                    mensaje_error += '<div>Ingrese su clave</div>';
+                }
+                if(error){
+                    $('#div_error').html(mensaje_error);
+                }
+            }
+
+            function NumeroOLetra(_evento, _opcion){
+                var tecla = (document.all) ? _evento.keyCode : _evento.which;
+                switch(_opcion){
+                    case 0://Letras
+                        if (tecla == 8 || tecla == 32 || tecla == 0) return true;
+                        var patron =  /[A-Za-z]/; 
+                        break;
+                    case 1://Numeros
+                        if (tecla == 8 || tecla == 0) return true;
+                        var patron = /[0-9]/;                    
+                        break;
+                    case 3://Numeros y punto
+                        if (tecla == 8 || tecla == 0 || tecla == 46 ) return true;
+                        var patron = /[0-9]/;                    
+                        break;
+                    default:
+                        if (tecla == 8 || tecla == 32 || tecla == 0) return true;
+                        var patron =  /[A-Za-z]/;
+                        break;
+                }
+                var tecla_final = String.fromCharCode(tecla);
+                return patron.test(tecla_final);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div_error"></div>
+        <div>
+            <label>Ingrese su nombre</label>
+            <input type="text" id="txt_nombre" onkeypress="return NumeroOLetra(event, 0);">
+        </div>
+        <div>
+            <label>Ingrese su edad</label>
+            <input type="text" id="txt_edad">
+        </div>
+        <div>
+            <label>Ingrese su DPI</label>
+            <input type="text" id="txt_dpi">
+        </div>
+        <div>
+            <label>Ingrese su Correo</label>
+            <input type="text" id="txt_correo">
+        </div>
+        <div>
+            <label>Ingrese su contrase&nacute;a</label>
+            <input type="text" id="txt_clave">
+        </div>
+        <button onclick="RegistroValidar();">Regitrarme</button>
+    </body>
+</html>

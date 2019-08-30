@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./Calendar.css">
+
+        <title>Calendario</title>
+    </head>
+
+    <body>
+
+        <h1 class="title">Calendario</h1>
+
+        <div class="calendar">
+            <div class="calendar__info">
+                <div class="calendar__prev" id="prev-month">↩</div>
+                <div class="calendar__month" id="month"></div>
+                <div class="calendar__year" id="year"></div>
+                <div class="calendar__next" id="next-month">↪</div>
+            </div>
+
+            <div class="calendar__week">
+                <div class="calendar_day calendar_item">Lunes</div>
+                <div class="calendar_day calendar_item">Martes</div>
+                <div class="calendar_day calendar_item">Miercoles</div>
+                <div class="calendar_day calendar_item">Jueves</div>
+                <div class="calendar_day calendar_item">Viernes</div>
+                <div class="calendar_day calendar_item">Sabado</div>
+                <div class="calendar_day calendar_item">Domingo</div>
+            </div>
+
+            <div class="calendar__dates" id="dates"></div>
+        </div>
+
+        <script src="./Calendar.js"></script>
+    </body>
+</html>

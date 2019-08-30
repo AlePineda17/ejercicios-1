@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+#nuevaTarea {
+    text-align: left;
+    line-height: 2em; 
+}
+
+#vertical-bar {
+    border-left: 1px solid black;
+    width:1px;
+    height:500px;
+    display: grid;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <header>
+      <script>
+        const cine = {
+            'Miraflores': {
+                'Sala 1': {
+	                'Fantasia' : {
+		                'Aventura' : [ 
+			                {nombre: 'Harry Potter y la piedra Filosofal', duracion: '152 min', hora: '10 AM', calificacion: 8},
+                            {nombre: 'El senor de los anillos', duracion: '178 min', hora: '8 PM', calificacion: 9}
+                        ],
+                    },
+                },
+                'Sala 2': {    
+                    'Terror' : {
+		                'Slacher' : [
+			                 {nombre: 'Psycho', duracion: '109 min', hora: '3 PM', calificacion: 8.5},
+                             {nombre: 'Viernes 13', duracion: '88 min', hora: '10 PM', calificacion: 7}
+                        ],
+                    },
+                },
+                'Sala 3': {        
+                    'Comedia' : {
+		                'Comedia Romantica' : [
+			                 {nombre: 'El diario de Bridget Jones', duracion: '97 min', hora:'12 PM', calificacion: 8},
+                             {nombre: 'Amelie', duracion: '122 min', hora: '10 PM', calificacion: 7},
+                        ],
+                    },
+                },    
+            },
+            'Oakland Mall': {
+                'Sala 1': {
+	                'Fantasia' : {
+		                'Aventura' : [ 
+			                {nombre: 'Harry Potter y la piedra Filosofal', duracion: '152 min', hora: '12 PM', calificacion: 8},
+                            {nombre: 'El senor de los anillos', duracion: '178 min', hora: '3 PM', calificacion: 9}
+                        ],
+                    },
+                },
+                'Sala 2': {    
+                    'Terror' : {
+		                'Slacher' : [
+			                 {nombre: 'Psycho', duracion: '109 min', hora: '4 PM', calificacion: 8.5},
+                             {nombre: 'Viernes 13', duracion: '88 min', hora: '9 AM', calificacion: 7}
+                        ],
+                    },
+                },
+                'Sala 3': {        
+                    'Comedia' : {
+		                'Comedia Romantica' : [
+			                 {nombre: 'El diario de Bridget Jones', duracion: '97 min', hora: '6 PM', calificacion: 8},
+                             {nombre: 'Amelie', duracion: '122 min', hora: '3 PM', calificacion: 7},
+                        ],
+                    },
+                },    
+            },
+            'Pradera Concepcion': {
+                'Sala 1': {
+	                'Fantasia' : {
+		                'Aventura' : [ 
+			                {nombre: 'Harry Potter y la piedra Filosofal', duracion: '152 min', hora: '10 AM', calificacion: 8},
+                            {nombre: 'El senor de los anillos', duracion: '178 min', hora: '3:30 PM', calificacion: 9}
+                        ],
+                    },
+                },
+                'Sala 2': {    
+                    'Terror' : {
+		                'Slacher' : [
+			                 {nombre: 'Psycho', duracion: '109 min', hora: '5 PM', calificacion: 8.5},
+                             {nombre: 'Viernes 13', duracion: '88 min', hora: '10 PM', calificacion: 7}
+                        ],
+                    },
+                },
+                'Sala 3': {        
+                    'Comedia' : {
+		                'Comedia Romantica' : [
+			                 {nombre: 'El diario de Bridget Jones', duracion: '97 min', hora: '2 PM', calificacion: 8},
+                             {nombre: 'Amelie', duracion: '122 min', hora: '5 PM', calificacion: 7},
+                        ]
+                    }
+                }    
+            }
+        }
+        function TablaArmar(){
+          var pelicula_cc = '';
+          var pelicula_sala = '';  
+          var pelicula_genero = '';
+          var pelicula_subgenero = '';
+          var i = 1;
+          var tabla_html = `<table>
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Centro Comercial</th>
+                                  <th>Sala</th>
+                                  <th>Genero</th>
+                                  <th>Subgenero</th>
+                                  <th>Pelicula</th>
+                                </tr>
+                              </thead>
+                              <tbody>`;
+          for(cc in cine){  
+            pelicula_cc = cc;
+            for(sala in cine[cc]){
+                pelicula_sala = sala;                      
+                for(genero in cine[cc][sala]){
+                    pelicula_genero = genero;
+                        for(subgenero in cine[cc][sala][genero]){
+                            pelicula_subgenero = subgenero;
+                                for(pelicula_indice in cine[cc][sala][genero][subgenero]){
+                                    var pelicula = cine[cc][sala][genero][subgenero][pelicula_indice];
+                                    tabla_html += `<tr>
+                                                      <td>${i}</td>
+                                                      <td>${pelicula_cc}</td>
+                                                      <td>${pelicula_sala}</td>
+                                                      <td>${pelicula_genero}</td>
+                                                      <td>${pelicula_subgenero}</td>
+                                                      <td>
+                                                        <ul>
+                                                          <li>${'Nombre: ' + pelicula.nombre}</li>
+                                                          <li>${'Duracion: ' + pelicula.duracion}</li>
+                                                          <li>${'Hora: ' + pelicula.hora}</li>
+                                                          <li>${'Calificacion: ' + pelicula.calificacion}</li> 
+                                                        </ul>   
+                                                      </td>
+                                                   </tr>`;
+                                                   i++;
+                                }
+                        }
+                }
+            }
+        }      
+        tabla_html +=       `</tbody>
+                            </table>`;
+        var div_tabla = document.getElementById('div_tabla');
+        div_tabla.innerHTML = tabla_html;
+        }
+    </script>
+    <link href = "Cine.css" type="text/css" rel="stylesheet">
+  </header> 
+  <body>
+    <div>
+      <button onclick="TablaArmar();">Mostrar Tabla</button>
+      <div id="div_tabla">
+      </div>
+    </div>
+  </body>     
+
+</html>

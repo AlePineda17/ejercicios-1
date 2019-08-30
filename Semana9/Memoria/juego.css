@@ -1,0 +1,25 @@
+#tablero {
+    border: 5px solid #e1b855;
+    width: 770px;
+    padding: 5px;
+  }
+  .carta {
+    position: relative;
+    border: 2px dashed gray;
+    width: 185px;
+    height: 300px;
+    display: inline-block;
+    background-color: #3356d7;
+  }
+  .cerrada {
+    background-color: #3356d7;
+  }
+  .abierta {
+    background-color: #a9aaca;
+  }
+  .carta img {
+    position:relative;
+    width: 50%;
+    margin-left:25%;
+    margin-top: 50%;
+  }

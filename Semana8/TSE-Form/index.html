@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Elecciones 2,019</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+	<div class="row" id="app">
+		<div class="col-4">
+			<div class="acta-1">  
+				<div class="crop-11">
+					<img :src="urlActa" alt="">
+					<div class="overlay"></div>
+					<div class="overlay-1"></div>
+				</div>
+				<div class="crop-12">
+					<img :src="urlActa" alt="">
+					<div class="overlay"></div>
+				</div>
+			</div>
+
+			<div class="acta-2">
+				<div class="crop-21">
+					<img :src="urlActa" alt="">
+					<div class="overlay"></div>
+					<div class="overlay-1"></div>
+				</div>
+				<div class="crop-22">
+					<img :src="urlActa" alt="">
+					<div class="overlay"></div>
+				</div>
+			</div>
+
+			<div class="acta-5">
+				<div class="crop-51">
+					<img :src="urlActa" alt="">
+					<div class="overlay"></div>
+					<div class="overlay-1"></div>
+				</div>
+				<div class="crop-52">
+					<img :src="urlActa" alt="">
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-8">
+			<div class="d-flex justify-content-center">
+				<form class="contact100-form validate-form">
+					<!-- {{ $data }} -->
+					<span class="contact100-form-title">
+						Digite el conteo de Actas
+					</span>
+
+					<div v-for="recuento in recuentos" class="wrap-input100 validate-input" 
+						data-validate="Name is required">
+						<input @change="validarDatos" v-model.lazy="recuento.valor" maxlength="3" 
+							class="input100" type="text" name="name" placeholder="Ingrese datos segun Acta...">
+						<span class="focus-input100"></span>
+						<!-- <small v-if="mostrarMensaje()">Ingrese valores validos</small> -->
+					</div>
+
+					<div class="container-contact100-form-btn" style="position:absolute;">
+						<button class="contact100-form-btn">
+							REPORTAR
+						</button>
+					</div>
+
+					<div @click="servirActa" class="container-contact100-form-btn"
+						style="position:absolute; margin-left: 25%;">
+						<button class="contact100-form-btn">
+							ENVIAR
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="form.js"></script>
+	<script>
+		$(".js-select2").each(function () {
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$(".js-select2").each(function () {
+			$(this).on('select2:open', function (e) {
+				$(this).parent().next().addClass('eff-focus-selection');
+			});
+		});
+		$(".js-select2").each(function () {
+			$(this).on('select2:close', function (e) {
+				$(this).parent().next().removeClass('eff-focus-selection');
+			});
+		});
+
+	</script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<!-- <script src="js/main.js"></script> -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+
+</html>
